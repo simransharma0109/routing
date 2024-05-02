@@ -1,0 +1,64 @@
+ <form [formGroup]="frm1" (ngSubmit)="f1(name,email,mobile,address)">
+<mat-form-field>
+  <mat-label>Name</mat-label>
+  <input matInput type="text" placeholder="Enter name" formControlName="name" #name>
+  <div *ngIf="!frm1.controls.name.valid && frm1.controls.name.touched">
+    <div style="color:red">Name Required</div>
+  </div>
+</mat-form-field><br/>
+<mat-form-field>
+  <mat-label>Email</mat-label>
+  <input matInput type="email" placeholder="Enter Email" formControlName="email" #email>
+  <div *ngIf="!frm1.controls.email.valid && frm1.controls.email.touched">
+    <div style="color:red">Email Required</div>
+  </div>
+</mat-form-field><br/>
+<mat-form-field>
+  <mat-label>Mobile</mat-label>
+  <input matInput type="text" placeholder="Enter Mobile No" formControlName="mobile" #mobile>
+  <div *ngIf="!frm1.controls.mobile.valid && frm1.controls.mobile.touched">
+    <div style="color:red">Mobile Required</div>
+  </div>
+</mat-form-field><br/>
+<mat-form-field>
+  <mat-label>Address</mat-label>
+  <input matInput type="text" placeholder="Enter address" formControlName="address" #address>
+  <div *ngIf="!frm1.controls.address.valid && frm1.controls.address.touched">
+    <div style="color:red">Address Required</div>
+  </div>
+</mat-form-field><br/>
+<div *ngIf="isValid; else elseblock">
+  <button mat-raised-button color="accent" (click)="onUpdate(name,email,mobile,address)">Update</button>
+  </div>
+  <ng-template #elseblock>
+<input type="submit" value="Add" class="btn btn-success" [disabled]="!frm1.valid">
+</ng-template>
+</form><br/>
+
+ <table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Mobile</th>
+      <th>Address</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of arr1; let i=index">
+      <td>{{p.name}}</td>
+      <td>{{p.email}}</td>
+      <td>{{p.mobile}}</td>
+      <td>{{p.address}}</td>
+      <td><button mat-icon-button (click)="onEdit(p,i)">
+        <mat-icon>edit</mat-icon>
+      </button></td>
+      <td><button mat-icon-button (click)="onDelete(i)">
+        <mat-icon>delete</mat-icon>
+      </button></td>
+    </tr>
+  </tbody>
+ </table>
+ 
