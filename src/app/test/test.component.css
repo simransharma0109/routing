@@ -1,0 +1,24 @@
+
+tr {
+display: flex;
+flex-direction: column;
+}
+
+td:nth-child(2n) {
+order: 2;
+}
+/*   
+  tr:nth-child(1) td:nth-child(1),
+  tr:nth-child(2) td:nth-child(1),
+  tr:nth-child(3) td:nth-child(1)  */
+  /* { */
+    /* background-color: #ffcc00; */
+  /* } */
+  
+  /* tr:nth-child(1) td:nth-child(2),
+  tr:nth-child(2) td:nth-child(2),
+  tr:nth-child(3) td:nth-child(2),
+  tr:nth-child(3) td:nth-child(3)  */
+  /* { */
+    /* background-color: #66cc99; */
+  /* } */
